@@ -6,9 +6,22 @@ app.listen(4000, () => {
 })
 
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  var bottles = 9;
+  display(res, bottles);  
 });
 
-app.get("/:name", (req, res) => {
-  res.send(`hello ${req.params.name}`);
+app.get("/:number_of_bottles", (req, res) => {
+  console.log(req.params);
+  var bottles = req.params.number_of_bottles;
+  if(bottles == 0){
+    res.send("0 bottles of beer. <a href='/'>Start Over</a>");
+  } else {
+    display(res, bottles);
+  }
 });
+
+function display(res, bottles) {
+  html = `${bottles} bottles of beer on the wall `;
+  html += `<a href='/${bottles-=1}'>take one down, pass it around</a>`;
+  res.send(html);
+}
