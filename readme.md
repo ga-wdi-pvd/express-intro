@@ -13,8 +13,43 @@
 
 ## Opening Framing (15/15)
 
+<details><summary> 
 Let's list out the things we've covered in class...
-
+</summary>
+ <ul>
+ <li> Html</li>
+ <li>
+ Css
+ </li>
+ <li>
+ Javascript
+ </li>
+ <li>
+ Objects
+ </li>
+ <li>
+ Functions
+ </li>
+ <li>
+ ES6 
+ </li>
+ <li>
+ SQL, Postgresql
+ </li>
+ <li>
+ Ruby 
+ </li>
+ <li>
+ OO programming
+ </li>
+ <li>
+ Sinatra
+ </li>
+ <li>
+ Rails
+ </li>
+ </ul>
+</details> 
 ---
 
 This is SO much stuff. We've pretty much covered the entire stack. Everything we
