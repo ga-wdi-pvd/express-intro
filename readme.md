@@ -246,7 +246,11 @@ same effects that erb did for us in Sinatra/Rails.
 
 Let's leverage our [solution to 99 Bottles of
 Beer](https://github.com/ga-dc/99_bottles_express/tree/solution) to learn about
-views.
+views:
+```
+git clone https://github.com/ga-wdi-exercises/99_bottles_express.git -b solution
+cd 99_bottles_express
+```
 
 Remember how we utilized erb in Sinatra and rails?  We need to be able to do the
 same sort of templating with Express. For express, we'll use handlebars. To
@@ -320,7 +324,7 @@ The only problem is our view is empty! Let's go ahead and change that now. In
 ```
 
 ### Research: What does {{{ (triple stash) do?
- - [Handlebar.js docs](http://handlebarsjs.com/)
+ - [Handlebars.js docs](http://handlebarsjs.com/)
 
 ### Serving static assets
 
