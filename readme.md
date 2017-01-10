@@ -4,10 +4,10 @@
 
   - Discuss why javascript is used for backend applications
   - Compare and contrast express.js to Rails / Sinatra.
-  - Manage project dependencies using nom
-  - Separate responsibilities by using module.exports and require to organize code
+  - Manage project dependencies using npm
+  - Separate responsibilities by using `module.exports` and `require` to organize code
   - Simplify rendering views in express by using handlebars.js
-  - Understand how to receive POST params by configuring and using body-parser middleware 
+  - Understand how to receive `POST` params by configuring and using `body-parser` middleware 
   - Link to static assets in an Express application
 
 ## Opening Framing (15/15)
@@ -519,8 +519,8 @@ And to our view:
 
 :tada:
 
-### GET params with res.params
-### POST params with res.body, using body-parser middleware
+***GET params with res.params***
+***POST params with res.body***, using body-parser middleware
 
 ## You Do - POST data and store it in a cookie (30 minutes)
 
@@ -530,7 +530,7 @@ In groups of 2 or 3, work together to implement storing POSTed data in cookies.
 
 Check out the Express API docs and review how to POST data. Look at how Express implements cookies, and create a route that, when POST data is received, stores data in cookies
 
-Since we don't have a form ready, you could either build a form in a view, like we did to requst the player_name above. Alternatively, think of your backend code as an API. How can you POST to an api without using the browser?
+Since we don't have a form ready, you could either build a form in a view, like we did to requst the `player_name` above. Alternatively, think of your backend code as an API. How can you POST to an api without using the browser?
 
 https://expressjs.com/en/api.html
 
