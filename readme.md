@@ -2,14 +2,13 @@
 
 ## Learning Objectives
 
-- List common reasons Javascript is used for server applications
-- Compare and contrast Javascript in the browser vs JS on the server
-- Compare and contrast express.js to Rails / Sinatra.
-- Use `npm` to manage project dependencies
-- Use `module.exports` and `require` to organize code
-- Use Handlebars templates to simplify rendering in express
-- Use and configure middleware, e.g. body-parser to handle form submissions
-- Link to static assets in an Express application
+  - Discuss why javascript is used for backend applications
+  - Compare and contrast express.js to Rails / Sinatra.
+  - Manage project dependencies using nom
+  - Separate responsibilities by using module.exports and require to organize code
+  - Simplify rendering views in express by using handlebars.js
+  - Understand how to receive POST params by configuring and using body-parser middleware 
+  - Link to static assets in an Express application
 
 ## Opening Framing (15/15)
 
@@ -48,6 +47,7 @@ Let's list out the things we've covered in class...
  <li>
  Rails
  </li>
+  <li>Node</li>
  </ul>
 </details> 
 ---
@@ -68,6 +68,14 @@ Some frameworks, like Rails, are very opinionated frameworks.
 Today, we'll be learning about Express, which is much less opinionated. Just
 like Sinatra, we have a lot of freedom in how we structure our application
 (folders/files, how to load different files, managing dependencies, etc)
+
+Remember, with Node and now with Express, we are writing JS on the backend! 
+<details><summary>What are some benefits of JS on the backend?</summary>
+<li>Easy to write front and backend in same language</li>
+<li>It's fast! Increased performance due to asynchronous processing</li>
+<li>You have to know a little JS to work with web pages. JS is becoming the "Must Know" language for web developers</li>
+</details> 
+
 
 ## Hello World - Express (we do 30/45)
 
@@ -201,6 +209,11 @@ Then we start up our application a bit differently now. In the terminal:
 $ nodemon index.js
 ```
 
+### Q: Why not just use Node.js?
+
+Yes, we already wrote a Node.js hello world app...why use Express?
+
+
 ## Params in URL in Express (5/50)
 
 Remember parameters in our ruby frameworks? It's very similar in JS. Let's
@@ -218,6 +231,14 @@ app.get("/:name", (req, res) => {
 The readme can be found [here](https://github.com/ga-wdi-exercises/99_bottles_express)
 
 ## Views (20/100)
+
+Quick Review of the Request - Response cycle that we saw in Rails
+ 1. Router
+ 2. Controller
+ 3. Model
+ 4. View
+
+What parts are implemented thus far with Express?
 
 > One thing to note about views for today. We want to give you an initial
 introduction into how views can be generated through templating to achieve the
@@ -297,6 +318,11 @@ The only problem is our view is empty! Let's go ahead and change that now. In
   </body>
 </html>
 ```
+
+### Research: What does {{{ (triple stash) do?
+ - [Handlebar.js docs](http://handlebarsjs.com/)
+
+### Serving static assets
 
 This is also a great time to note how we serve static assets. Notice we linked a
 stylesheet in our layout file.
@@ -383,6 +409,8 @@ You can start to see the necessity of `module.export` when we start to add
 models to our application. If we had the 7 RESTful routes that rails have for
 each model, you can start to see how keeping everything in the `index.js` can
 begin to become unwieldy.
+
+By using module.exports, we can effectively separate concerns and start to organize our application code. This idea of separating concerns and adhering to an MVC design allows our apps to grow while remaining easy to maintain and understand what is happening.
 
 ## Break (10/130)
 
@@ -491,7 +519,26 @@ And to our view:
 
 :tada:
 
-## You do - Ultimate Compliment (Homework)
+### GET params with res.params
+### POST params with res.body, using body-parser middleware
+
+## You Do - POST data and store it in a cookie (30 minutes)
+
+We can persist data temporarily in a cookie. If we wanted to perist data across requests securely, we would store the data in some kind of persistant storage, like a database.
+
+In groups of 2 or 3, work together to implement storing POSTed data in cookies.
+
+Check out the Express API docs and review how to POST data. Look at how Express implements cookies, and create a route that, when POST data is received, stores data in cookies
+
+Since we don't have a form ready, you could either build a form in a view, like we did to requst the player_name above. Alternatively, think of your backend code as an API. How can you POST to an api without using the browser?
+
+https://expressjs.com/en/api.html
+
+(Hint: you will need middleware to start working with cookies)
+
+### Bonus: use cURL or Postman to send POST to your route
+
+## Homework: Ultimate Compliment
 
 * [Ultimate Compliment](https://github.com/ga-dc/compliment-express)
   * You might want to look at the [Sinatra Version Solution](https://github.com/ga-dc/emergency_compliment/tree/solution)
@@ -502,3 +549,13 @@ And to our view:
 - Write a get request using any path as you would in an express application.
 
 - How does `module.exports` help us with separation of concerns?
+
+### Other frameworks based on Express
+ 
+ - Express Generator
+ - [KoaJS](https://github.com/koajs/koa)
+
+### In the Wild
+
+ - [Why Netflix got burned](https://www.infoq.com/news/2014/12/expressjs-burned-netflix)
+
