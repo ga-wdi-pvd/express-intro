@@ -1,0 +1,10 @@
+{{#if player_name}}
+  Hey {{player_name}}, there are
+{{/if}}
+{{bottles}} bottles of beer on the wall.
+{{#if next}}
+  <a href='/{{next}}'>Take one down, pass it around</a>
+{{else}}
+  <a href='/99'>Start Over</a>
+{{/if}}
+

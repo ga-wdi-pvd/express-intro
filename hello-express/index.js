@@ -1,28 +1,20 @@
 var express = require("express");
+var bodyParser = require("body-parser");
+var bottles = require("./controllers/bottles.js");
 var app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(__dirname + '/public'))
+
 app.set("view engine", "hbs");
 
 app.listen(4000, () => {
   console.log("app listening on port 4000");
 })
 
-app.get("/", (req, res) => {
-  var bottles = 9;
-  display(res, bottles);  
-});
+app.get("/", bottles.root);
+app.get("/:number_of_bottles?", bottles.index);
 
-app.get("/:number_of_bottles", (req, res) => {
-  console.log(req.params);
-  var bottles = req.params.number_of_bottles;
-  if(bottles == 0){
-    res.send("0 bottles of beer. <a href='/'>Start Over</a>");
-  } else {
-    display(res, bottles);
-  }
-});
-
-function display(res, bottles) {
-  html = `${bottles} bottles of beer on the wall `;
-  html += `<a href='/${bottles-=1}'>take one down, pass it around</a>`;
-  res.send(html);
-}
+app.post("/", bottles.root_post);
